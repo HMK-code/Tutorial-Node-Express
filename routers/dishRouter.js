@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const dishRouter = express.Router();
 
-dishRouter.use(bodyParser.json());
+dishRouter.use(bodyParser.json()); // do not require this code for bodyParser@^1.16.03
 
 dishRouter.route('/')
 .all((req,res,next) => {
