@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 
 const dishRouter = require('./routers/dishRouter')
 const dishIdRouter = require('./routers/dishIdRouter')
+const promoRouter = require('./routers/promoRouter');
+const promoIdRouter = require('./routers/promoIdRouter');
+const leaderRouter = require('./routers/leaderRouter');
+const leaderIdRouter = require('./routers/leaderIdRouter');
+
 
 const hostname = "localhost";
 const port = 3000;
@@ -14,11 +19,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.json())
 
 app.use('/dishes', dishRouter)
-app.use('/dishId', dishIdRouter)
-
- app.use(express.static(__dirname+ '/public')); 
-
-
+app.use('/dishes/dishId', dishIdRouter)
+app.use('/promotions', promoRouter)
+app.use('/promotions/promoId', promoIdRouter)
+app.use('/leaders/', leaderRouter)
+app.use('/leaders/leaderId', leaderIdRouter)
  
 const server = http.createServer(app);
 
